@@ -1,0 +1,19 @@
+{
+  "jsonrpc": "2.0",
+  "id": "test_specific_concept",
+  "method": "tasks/send",
+  "params": {
+    "id": "task_specific_concept",
+    "sessionId": "session_specific_concept",
+    "acceptedOutputModes": ["text"],
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "type": "text",
+          "text": "Cho tôi thông tin về gói HÀNH TRÌNH XANH"
+        }
+      ]
+    }
+  }
+}

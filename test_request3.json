@@ -1,0 +1,19 @@
+{
+  "jsonrpc": "2.0",
+  "id": "test3",
+  "method": "tasks/send",
+  "params": {
+    "id": "task125",
+    "sessionId": "session456",
+    "acceptedOutputModes": ["text"],
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "type": "text",
+          "text": "Cho tôi thông tin về gói Sức mạnh EKIP"
+        }
+      ]
+    }
+  }
+}

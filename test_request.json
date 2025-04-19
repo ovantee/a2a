@@ -1,0 +1,19 @@
+{
+  "jsonrpc": "2.0",
+  "id": "test1",
+  "method": "tasks/send",
+  "params": {
+    "id": "task123",
+    "sessionId": "session456",
+    "acceptedOutputModes": ["text"],
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "type": "text",
+          "text": "Có thông tin gì hay không"
+        }
+      ]
+    }
+  }
+}

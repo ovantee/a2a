@@ -1,0 +1,7 @@
+booking_id,destination,start_date,end_date,num_people,budget,status,created_at,confirmed_at
+booking_test_2954743,Test Destination,1/1/2025,10/1/2025,2,1000 USD,confirmed,4/18/2025 15:44,4/18/2025 15:44
+booking_test_2263861,Test Destination,01/01/2025,10/01/2025,2,1000 USD,confirmed,2025-04-18 15:53:24,2025-04-18 15:53:24
+booking_test_4994160,Test Destination,01/01/2025,10/01/2025,2,1000 USD,confirmed,2025-04-18 15:54:08,2025-04-18 15:54:08
+booking_1921299,Paris,15/05/2025,25/05/2025,4,5000 EUR,pending,2025-04-18 15:54:08,
+booking_1441843,Ha Noi,<start date>,<end date>,<number of people>,<budget per person>,pending,2025-04-18 16:03:24,
+booking_1441843,Ha Noi,<start date>,<end date>,5,20 million VND,pending,2025-04-18 16:03:24,

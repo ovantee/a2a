@@ -1,0 +1,19 @@
+{
+  "jsonrpc": "2.0",
+  "id": "test_streaming",
+  "method": "tasks/sendSubscribe",
+  "params": {
+    "id": "task_stream_1",
+    "sessionId": "session_stream_1",
+    "acceptedOutputModes": ["text"],
+    "message": {
+      "role": "user",
+      "parts": [
+        {
+          "type": "text",
+          "text": "Cho tôi thông tin về gói Sức mạnh EKIP"
+        }
+      ]
+    }
+  }
+}
