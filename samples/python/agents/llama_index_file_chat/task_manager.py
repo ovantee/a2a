@@ -1,5 +1,4 @@
 import asyncio
-import base64
 import logging
 import traceback
 from typing import AsyncIterable, Union, Dict, Any
@@ -43,7 +42,7 @@ class LlamaIndexTaskManager(InMemoryTaskManager):
         "image/png",
         "image/jpeg",
     ]
-    SUPPORTED_OUTPUT_TYPES = ["text/plain"]
+    SUPPORTED_OUTPUT_TYPES = ["text","text/plain"]
 
     def __init__(self, agent: ParseAndChat, notification_sender_auth: PushNotificationSenderAuth):
         super().__init__()
@@ -151,12 +150,12 @@ class LlamaIndexTaskManager(InMemoryTaskManager):
     ) -> JSONRPCResponse | None:
         task_send_params: TaskSendParams = request.params
         if not utils.are_modalities_compatible(
-            task_send_params.acceptedOutputModes, self.SUPPORTED_CONTENT_TYPES
+            task_send_params.acceptedOutputModes, self.SUPPORTED_OUTPUT_TYPES
         ):
             logger.warning(
                 "Unsupported output mode. Received %s, Support %s",
                 task_send_params.acceptedOutputModes,
-                self.SUPPORTED_CONTENT_TYPES,
+                self.SUPPORTED_OUTPUT_TYPES,
             )
             return utils.new_incompatible_types_error(request.id)
         

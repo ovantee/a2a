@@ -57,6 +57,7 @@ The Agent2Agent (A2A) protocol facilitates communication between independent AI 
     * [LangGraph](/samples/python/agents/langgraph/README.md)
     * [Genkit](/samples/js/src/agents/README.md)
     * [LlamaIndex](/samples/python/agents/llama_index_file_chat/README.md)
+    * [Marvin](/samples/python/agents/marvin/README.md)
     * [Semantic Kernel](/samples/python/agents/semantickernel/README.md)
 * 📑 Review key topics to understand protocol details 
     * [A2A and MCP](https://google.github.io/A2A/#/topics/a2a_and_mcp.md)
