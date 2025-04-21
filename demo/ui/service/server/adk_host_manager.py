@@ -67,7 +67,7 @@ class ADKHostManager(ApplicationManager):
     self.app_name = "A2A"
     self.api_key = api_key or os.environ.get("GOOGLE_API_KEY", "")
     self.uses_vertex_ai = uses_vertex_ai or os.environ.get("GOOGLE_GENAI_USE_VERTEXAI", "").upper() == "TRUE"
-    
+
     # Set environment variables based on auth method
     if self.uses_vertex_ai:
       os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "TRUE"
@@ -76,9 +76,9 @@ class ADKHostManager(ApplicationManager):
       # Use API key authentication
       os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "FALSE"
       os.environ["GOOGLE_API_KEY"] = self.api_key
-      
+
     self._initialize_host()
-    
+
     # Map of message id to task id
     self._task_map = {}
     # Map to manage 'lost' message ids until protocol level id is introduced
@@ -88,7 +88,7 @@ class ADKHostManager(ApplicationManager):
     """Update the API key and reinitialize the host if needed"""
     if api_key and api_key != self.api_key:
       self.api_key = api_key
-      
+
       # Only update if not using Vertex AI
       if not self.uses_vertex_ai:
         os.environ["GOOGLE_API_KEY"] = api_key
@@ -190,7 +190,8 @@ class ADKHostManager(ApplicationManager):
       final_event = event
     response: Message | None = None
     if final_event:
-      final_event.content.role = 'model'
+      if final_event.content:
+        final_event.content.role = 'model'
       response = self.adk_content_to_message(final_event.content, conversation_id)
       last_message_id = get_message_id(message)
       new_message_id = ""
@@ -430,7 +431,7 @@ class ADKHostManager(ApplicationManager):
               file_uri=part.uri,
               mime_type=part.mimeType
           ))
-        elif content_part.bytes:
+        elif part.bytes:
           parts.append(types.Part.from_bytes(
               data=part.bytes.encode('utf-8'),
               mime_type=part.mimeType)
@@ -441,10 +442,10 @@ class ADKHostManager(ApplicationManager):
 
   def adk_content_to_message(self, content: types.Content, conversation_id: str) -> Message:
     parts: list[Part] = []
-    if not content.parts:
+    if content is None or not content.parts:
       return Message(
           parts=[],
-          role=content.role if content.role == 'user' else 'agent',
+          role='agent',  # Default to agent if content is None
           metadata={'conversation_id': conversation_id},
       )
     for part in content.parts:
