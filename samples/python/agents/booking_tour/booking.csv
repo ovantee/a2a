@@ -5,3 +5,4 @@ booking_test_4994160,Test Destination,01/01/2025,10/01/2025,2,1000 USD,confirmed
 booking_1921299,Paris,15/05/2025,25/05/2025,4,5000 EUR,pending,2025-04-18 15:54:08,
 booking_1441843,Ha Noi,<start date>,<end date>,<number of people>,<budget per person>,pending,2025-04-18 16:03:24,
 booking_1441843,Ha Noi,<start date>,<end date>,5,20 million VND,pending,2025-04-18 16:03:24,
+booking_1794095,Phú Quốc,<start date>,<end date>,<number of people>,<budget per person>,pending,2025-04-21 14:39:53,
